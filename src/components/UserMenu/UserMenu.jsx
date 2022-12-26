@@ -1,4 +1,4 @@
-import { useAuth } from 'hooks/useLocalStorage';
+import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 import { UserWrapper, UserName, BtnLogOut } from './UserMenu.styled';
