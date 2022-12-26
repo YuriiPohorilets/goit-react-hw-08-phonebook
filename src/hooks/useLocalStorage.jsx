@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { selectUser, selectIsLoggedIn, selectIsRefreshing } from 'redux/auth/selectors';
 
-export const useLocalStorage = (key, defaultValue) => {
-  const [state, setState] = useState(() => {
-    return JSON.parse(window.localStorage.getItem(key)) ?? defaultValue;
-  });
+export const useAuth = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const user = useSelector(selectUser);
 
-  useEffect(() => {
-    window.localStorage.setItem(key, JSON.stringify(state));
-  }, [key, state]);
-  return [state, setState];
+  return {
+    isLoggedIn,
+    isRefreshing,
+    user,
+  };
 };

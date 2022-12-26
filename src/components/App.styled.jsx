@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  margin: 40px auto;
+  margin: 0 auto;
+  margin-bottom: 40px;
   padding: 20px;
 
   max-width: 650px;
-  min-height: 870px;
+  /* min-height: 870px; */
   text-align: center;
 
   box-shadow: var(--main-shadow);

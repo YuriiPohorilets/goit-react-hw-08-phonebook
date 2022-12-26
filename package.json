@@ -2,7 +2,7 @@
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://YuriiPohorilets.github.io/goit-react-hw-07-phonebook/",
+  "homepage": "https://YuriiPohorilets.github.io/goit-react-hw-08-phonebook/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -18,6 +18,7 @@
     "react-dom": "^18.1.0",
     "react-hot-toast": "^2.4.0",
     "react-redux": "^8.0.5",
+    "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.1",
     "redux-persist": "^6.0.0",

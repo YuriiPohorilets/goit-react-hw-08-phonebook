@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/contactsOperations';
+import { selectContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import * as Yup from 'yup';
@@ -13,24 +13,24 @@ const nanoid = customAlphabet('1234567890', 3);
 
 const schema = Yup.object().shape({
   name: Yup.string().min(2).max(70).required(),
-  phone: Yup.number().min(4).required(),
+  number: Yup.number().min(4).required(),
 });
 
 const initialValues = {
   id: '',
   name: '',
-  phone: '',
+  number: '',
 };
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const handleSubmit = (values, { resetForm }) => {
     const newContact = {
       id: 'id-' + nanoid(),
       name: values.name,
-      phone: values.phone,
+      number: values.number,
     };
 
     if (contacts.find(contact => contact.name === newContact.name)) {
@@ -52,9 +52,9 @@ export const ContactForm = () => {
           </Wrapper>
 
           <Wrapper>
-            <Label htmlFor="phone">Number:</Label>
-            <Input name="phone" type="tel" id="phone" />
-            <ErrorMsg name="phone" component="div" />
+            <Label htmlFor="number">Number:</Label>
+            <Input name="number" type="tel" id="number" />
+            <ErrorMsg name="number" component="div" />
           </Wrapper>
 
           <Btn type="submit">Add contact</Btn>
