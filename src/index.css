@@ -1,4 +1,4 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
 
 body {
   margin: 0;
@@ -6,7 +6,13 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #ebf5fc;
+
+  /* background: linear-gradient(180deg, #a8edea 0%, #fed6e3 100%); */
+  background: linear-gradient(180deg, #6a9bd8 0%, #fff4ae 100%);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 code {
@@ -16,6 +22,10 @@ code {
 p,
 h1,
 h2,
+h3,
+h4,
+h5,
+h6,
 ul {
   margin: 0;
   padding: 0;
@@ -32,10 +42,15 @@ img {
   --accent: #6a9bd8;
   --primary: #282828;
   --secondary: #858585;
-  --bg: #ebf5fc;
+  --bg: rgba(255, 255, 255, 0.2);
   --main-shadow: -2px -2px 5px #ffffff, 3px 3px 5px rgba(0, 0, 0, 0.1);
   --inset-shadow: inset -2px -2px 5px #ffffff, inset 3px 3px 5px rgba(0, 0, 0, 0.1);
   --good: rgba(96, 205, 74, 0.7);
   --neutral: rgba(205, 185, 74, 0.7);
   --bad: rgba(205, 87, 74, 0.7);
+}
+
+#root {
+  padding: 20px 0;
+  flex: 1;
 }

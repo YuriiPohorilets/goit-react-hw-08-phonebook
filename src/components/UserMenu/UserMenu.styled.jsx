@@ -3,31 +3,38 @@ import styled from '@emotion/styled';
 export const UserWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
+`;
+
+export const Paragraph = styled.p`
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
 `;
 
 export const UserName = styled.span`
-  color: var(--accent);
+  font-weight: 500;
+  color: #fff;
 `;
 
 export const BtnLogOut = styled.button`
-  padding: 5px 15px;
+  padding: 8px 18px;
 
   font-size: 18px;
   font-weight: 500;
-  color: var(--accent);
+  color: rgba(255, 255, 255, 0.7);
 
   background-color: transparent;
-  border-radius: 5px;
-  border: 1px solid var(--accent);
-  box-shadow: var(--main-shadow);
 
-  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
 
   transition: all 250ms ease-in-out;
 
+  cursor: pointer;
+
   :hover {
-    color: var(--bg);
-    background-color: var(--accent);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 `;

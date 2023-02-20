@@ -3,26 +3,56 @@ import { NavLink } from 'react-router-dom';
 
 export const NavList = styled.ul`
   display: flex;
-  gap: 20px;
-
-  font-weight: 500;
-  font-size: 26px;
-  color: var(--primary);
-  text-shadow: var(--main-shadow);
+  align-items: center;
+  gap: 35px;
 `;
 
 export const NavItemLink = styled(NavLink)`
-  color: currentColor;
+  position: relative;
+
+  font-weight: 500;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 
   transition: all 250ms ease-in-out;
 
-  &.active {
-    color: var(--accent);
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 300ms ease-in-out;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
 
   :hover,
   :focus {
-    color: var(--accent);
+    color: #fff;
+  }
+
+  &.active {
+    color: #fff;
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
   }
 `;
