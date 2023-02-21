@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Form, Field, ErrorMessage } from 'formik';
-import { FaEyeSlash } from 'react-icons/fa';
+import { FaEyeSlash, FaEye } from 'react-icons/fa';
 
 export const FormContainer = styled(Form)`
   display: flex;
@@ -63,6 +63,10 @@ export const Input = styled(Field)`
     color: rgba(255, 255, 255, 1);
     border: 1px solid rgba(227, 67, 67, 0.7);
     background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &[type='password'] {
+    padding-right: 65px;
   }
 
   &:hover,
@@ -135,7 +139,7 @@ export const ShowPassBtn = styled.button`
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 
   border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 5px;
+  border-radius: 7px;
 
   transition: border 250ms ease-in-out;
 
@@ -151,6 +155,15 @@ export const ShowPassBtn = styled.button`
 `;
 
 export const IconHidden = styled(FaEyeSlash)`
+  width: 100%;
+  height: 100%;
+
+  fill: rgba(255, 255, 255, 0.7);
+
+  transition: fill 250ms ease-in-out;
+`;
+
+export const IconShown = styled(FaEye)`
   width: 100%;
   height: 100%;
 

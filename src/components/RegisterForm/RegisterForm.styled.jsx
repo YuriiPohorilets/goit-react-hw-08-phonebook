@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Form, Field, ErrorMessage } from 'formik';
+import { FaEyeSlash, FaEye } from 'react-icons/fa';
 
 export const FormContainer = styled(Form)`
   display: flex;
@@ -64,6 +65,10 @@ export const Input = styled(Field)`
     background-color: rgba(255, 255, 255, 0.1);
   }
 
+  &[type='password'] {
+    padding-right: 65px;
+  }
+
   &:hover,
   &:focus {
     color: #fff;
@@ -104,4 +109,56 @@ export const ErrorMsg = styled(ErrorMessage)`
 
   font-size: 14px;
   color: #e34343;
+`;
+
+export const PassWrapper = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+export const ShowPassBtn = styled.button`
+  position: absolute;
+  top: 50%;
+  right: 15px;
+
+  transform: translateY(-50%);
+
+  width: 33px;
+  height: 33px;
+
+  background-color: transparent;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 7px;
+
+  transition: border 250ms ease-in-out;
+
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid rgba(255, 255, 255, 1);
+  }
+
+  &:hover > svg {
+    fill: #fff;
+  }
+`;
+
+export const IconHidden = styled(FaEyeSlash)`
+  width: 100%;
+  height: 100%;
+
+  fill: rgba(255, 255, 255, 0.7);
+
+  transition: fill 250ms ease-in-out;
+`;
+
+export const IconShown = styled(FaEye)`
+  width: 100%;
+  height: 100%;
+
+  fill: rgba(255, 255, 255, 0.7);
+
+  transition: fill 250ms ease-in-out;
 `;

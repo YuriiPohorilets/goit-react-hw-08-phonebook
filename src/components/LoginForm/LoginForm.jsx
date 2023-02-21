@@ -13,6 +13,7 @@ import {
   ErrorMsg,
   Text,
   IconHidden,
+  IconShown,
   PassWrapper,
   ShowPassBtn,
 } from './LoginForm.styled';
@@ -71,7 +72,7 @@ export const LoginForm = () => {
               />
 
               <ShowPassBtn type="button" onClick={togglePassword} data-shown={passwordShown}>
-                <IconHidden />
+                {passwordShown ? <IconShown /> : <IconHidden />}
               </ShowPassBtn>
             </PassWrapper>
             <ErrorMsg name="password" component="span" />

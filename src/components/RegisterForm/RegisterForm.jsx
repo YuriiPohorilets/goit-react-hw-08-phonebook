@@ -1,5 +1,6 @@
 import { register } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { Formik } from 'formik';
 import { registerSchema } from 'schemas/registerSchema';
 import {
@@ -10,6 +11,10 @@ import {
   Input,
   Btn,
   ErrorMsg,
+  IconHidden,
+  IconShown,
+  PassWrapper,
+  ShowPassBtn,
 } from './RegisterForm.styled';
 
 const initialValues = {
@@ -20,6 +25,7 @@ const initialValues = {
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const [passwordShown, setPasswordShown] = useState(false);
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
@@ -32,6 +38,8 @@ export const RegisterForm = () => {
 
     resetForm();
   };
+
+  const togglePassword = () => setPasswordShown(!passwordShown);
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={registerSchema}>
@@ -66,14 +74,20 @@ export const RegisterForm = () => {
 
           <InputWrapper>
             <Label htmlFor="password">Password:</Label>
-            <Input
-              type="password"
-              name="password"
-              id="password"
-              autoComplete="off"
-              placeholder={' '}
-              data-error={errors.password && touched.password ? true : false}
-            />
+            <PassWrapper>
+              <Input
+                type={passwordShown ? 'text' : 'password'}
+                name="password"
+                id="password"
+                autoComplete="off"
+                placeholder={' '}
+                data-error={errors.password && touched.password ? true : false}
+              />
+
+              <ShowPassBtn type="button" onClick={togglePassword} data-shown={passwordShown}>
+                {passwordShown ? <IconShown /> : <IconHidden />}
+              </ShowPassBtn>
+            </PassWrapper>
             <ErrorMsg name="password" component="span" />
           </InputWrapper>
           <Btn type="submit">Sign up</Btn>
