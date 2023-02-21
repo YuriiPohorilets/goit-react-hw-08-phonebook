@@ -1,33 +1,46 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-  margin: 0 auto;
-  margin-bottom: 30px;
-  max-width: 50%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
+  margin-bottom: 25px;
+  max-width: 100%;
 `;
 
 export const Label = styled.label`
-  margin-bottom: 10px;
-  font-weight: 500;
-  font-size: 24px;
-  color: var(--secondary);
-  text-shadow: var(--main-shadow);
+  display: inline-block;
+  margin-bottom: 5px;
+
+  font-size: 22px;
+  color: #fff;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 `;
 
 export const Input = styled.input`
-  padding: 5px 10px;
+  padding: 15px;
   width: 100%;
 
   font-size: 24px;
-  color: var(--primary);
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 
   background-color: transparent;
-  border: none;
-  border-radius: 5px;
-  box-shadow: var(--inset-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+  transition: all 300ms ease-in-out;
+
+  outline: none;
+
+  &:not(:placeholder-shown) {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 `;

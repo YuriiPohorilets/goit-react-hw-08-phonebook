@@ -1,30 +1,40 @@
-import { Form, Field, ErrorMessage } from 'formik';
 import styled from '@emotion/styled';
+import { Form, Field, ErrorMessage } from 'formik';
 
-export const Container = styled(Form)`
-  margin-bottom: 30px;
+export const FormContainer = styled(Form)`
+  margin-bottom: 55px;
+
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px 20px;
 `;
 
-export const Wrapper = styled.div`
+export const InputWrapper = styled.div`
+  position: relative;
+
+  max-width: 100%;
+  width: 450px;
+  min-width: 200px;
+
+  flex: 1 0 33.333%;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  flex: 1;
-  gap: 10px;
+  gap: 5px;
 `;
 
 export const Label = styled.label`
-  font-weight: 500;
-  font-size: 24px;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 22px;
+  color: #fff;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 `;
 
 export const Input = styled(Field)`
   padding: 15px;
-  /* width: 100%; */
+  width: 100%;
 
   font-size: 24px;
   color: rgba(255, 255, 255, 0.7);
@@ -39,6 +49,18 @@ export const Input = styled(Field)`
 
   outline: none;
 
+  &:not(:placeholder-shown)[data-error='false'] {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &[data-error='true'] {
+    color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(227, 67, 67, 0.7);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
   &:hover,
   &:focus {
     color: #fff;
@@ -47,33 +69,38 @@ export const Input = styled(Field)`
   }
 `;
 
-export const ErrorMsg = styled(ErrorMessage)`
-  margin-top: 7px;
-  color: red;
-`;
-
 export const Btn = styled.button`
-  padding: 10px 25px;
+  padding: 15px 28px;
 
-  max-height: 60px;
-
-  font-size: 24px;
   font-weight: 500;
+  font-size: 24px;
   color: rgba(255, 255, 255, 0.7);
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 
   background-color: transparent;
+
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 
-  cursor: pointer;
-
   transition: all 250ms ease-in-out;
+
+  cursor: pointer;
 
   :hover {
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 1);
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
   }
+`;
+
+export const ErrorMsg = styled(ErrorMessage)`
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+
+  transform: translateY(100%);
+
+  font-size: 14px;
+  color: #e34343;
 `;

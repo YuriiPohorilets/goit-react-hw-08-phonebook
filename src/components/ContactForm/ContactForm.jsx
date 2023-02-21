@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import { contactSchema } from 'schemas/contactSchema';
 import { Formik } from 'formik';
 import { customAlphabet } from 'nanoid';
-import { Container, Input, Label, Wrapper, ErrorMsg, Btn } from './ContactForm.styled';
+import { FormContainer, Input, Label, InputWrapper, ErrorMsg, Btn } from './ContactForm.styled';
 
 const nanoid = customAlphabet('1234567890', 3);
 
@@ -44,21 +44,35 @@ export const ContactForm = () => {
         validationSchema={contactSchema}
       >
         {({ errors, touched }) => (
-          <Container>
-            <Wrapper>
+          <FormContainer>
+            <InputWrapper>
               <Label htmlFor="name">Name:</Label>
-              <Input name="name" type="text" id="name" />
+              <Input
+                name="name"
+                type="text"
+                id="name"
+                autoComplete="off"
+                placeholder={' '}
+                data-error={errors.name && touched.name ? true : false}
+              />
               <ErrorMsg name="name" component="span" />
-            </Wrapper>
+            </InputWrapper>
 
-            <Wrapper>
+            <InputWrapper>
               <Label htmlFor="number">Number:</Label>
-              <Input name="number" type="tel" id="number" />
+              <Input
+                name="number"
+                type="text"
+                id="number"
+                autoComplete="off"
+                placeholder={' '}
+                data-error={errors.number && touched.number ? true : false}
+              />
               <ErrorMsg name="number" component="span" />
-            </Wrapper>
+            </InputWrapper>
 
-            <Btn type="submit">Add contact</Btn>
-          </Container>
+            <Btn type="submit">Done</Btn>
+          </FormContainer>
         )}
       </Formik>
       <ToastContainer />

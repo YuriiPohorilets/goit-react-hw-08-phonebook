@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
+import { device } from 'components/App.styled';
 
 export const Header = styled.header`
-  padding: 20px 40px;
+  padding: 20px;
   max-width: 850px;
 
   display: flex;
@@ -15,4 +16,8 @@ export const Header = styled.header`
   border-radius: 16px;
 
   backdrop-filter: blur(5px);
+
+  @media ${device.tablet} {
+    padding: 20px 40px;
+  }
 `;

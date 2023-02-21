@@ -9,12 +9,13 @@ export const Filter = () => {
 
   return (
     <Wrapper>
-      <Label htmlFor="filter">Find contacts by name</Label>
+      <Label htmlFor="filter">Find contact by name</Label>
       <Input
         name="filter"
         type="text"
         id="filter"
         value={filter}
+        placeholder={' '}
         onChange={e => dispatch(setContactFilter(e.currentTarget.value))}
       />
     </Wrapper>

@@ -21,7 +21,11 @@ export const HomePage = () => {
 
       <Info>
         Created by{' '}
-        <InfoLink href="https://www.linkedin.com/feed/" target="_blank" rel="noreferrer">
+        <InfoLink
+          href="https://www.linkedin.com/in/yuriipohorilets/"
+          target="_blank"
+          rel="noreferrer"
+        >
           Yurii Pohorilets
         </InfoLink>
       </Info>

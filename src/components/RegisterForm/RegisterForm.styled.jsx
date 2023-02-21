@@ -104,8 +104,10 @@ export const Btn = styled.button`
 
 export const ErrorMsg = styled(ErrorMessage)`
   position: absolute;
-  bottom: -25%;
+  bottom: -10%;
   left: 0;
+
+  transform: translateY(100%);
 
   font-size: 14px;
   color: #e34343;
@@ -123,6 +125,7 @@ export const ShowPassBtn = styled.button`
 
   transform: translateY(-50%);
 
+  padding: 5px;
   width: 33px;
   height: 33px;
 

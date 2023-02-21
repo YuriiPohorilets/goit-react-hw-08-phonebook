@@ -1,5 +1,15 @@
 import styled from '@emotion/styled';
 
+const size = {
+  mobile: '320px',
+  tablet: '768px',
+};
+
+export const device = {
+  mobile: `(min-width: ${size.mobile})`,
+  tablet: `(min-width: ${size.tablet})`,
+};
+
 export const Container = styled.div`
   margin: 0 auto;
   padding: 0 15px;
@@ -11,12 +21,16 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 
-  font-size: 44px;
+  font-size: 38px;
   font-weight: 700;
   color: #fff;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+
+  @media ${device.tablet} {
+    font-size: 44px;
+  }
 `;
 
 export const Subtitle = styled.h2`
