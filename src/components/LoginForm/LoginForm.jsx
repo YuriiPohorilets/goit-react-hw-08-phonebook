@@ -1,38 +1,69 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-import { Form, Wrapper, Label, Input, Btn } from './LoginForm.styled';
+import { Formik } from 'formik';
+import { loginSchema } from 'schemas/loginSchema';
+import {
+  FormContainer,
+  Title,
+  InputWrapper,
+  Label,
+  Input,
+  Btn,
+  ErrorMsg,
+} from './LoginForm.styled';
+
+const initialValues = {
+  email: '',
+  password: '',
+};
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    const form = e.currentTarget;
-
+  const handleSubmit = (values, { resetForm }) => {
     dispatch(
       logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+        email: values.email,
+        password: values.password,
       })
     );
 
-    form.reset();
+    resetForm();
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Wrapper>
-        <Label htmlFor="email">Email</Label>
-        <Input type="email" name="email" id="email" />
-      </Wrapper>
+    <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={loginSchema}>
+      {({ errors, touched }) => (
+        <FormContainer>
+          <Title>Sign in to continue</Title>
+          <InputWrapper>
+            <Label htmlFor="email">Email:</Label>
+            <Input
+              type="email"
+              name="email"
+              id="email"
+              autoComplete="off"
+              placeholder={' '}
+              data-error={errors.email && touched.email ? true : false}
+            />
+            <ErrorMsg name="email" component="span" />
+          </InputWrapper>
 
-      <Wrapper>
-        <Label htmlFor="password">Password</Label>
-        <Input type="password" name="password" id="password" />
-      </Wrapper>
-
-      <Btn type="submit">Login</Btn>
-    </Form>
+          <InputWrapper>
+            <Label htmlFor="password">Password:</Label>
+            <Input
+              type="password"
+              name="password"
+              id="password"
+              autoComplete="off"
+              placeholder={' '}
+              data-error={errors.password && touched.password ? true : false}
+            />
+            <ErrorMsg name="password" component="span" />
+          </InputWrapper>
+          <Btn type="submit">Sign in</Btn>
+        </FormContainer>
+      )}
+    </Formik>
   );
 };

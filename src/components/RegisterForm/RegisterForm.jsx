@@ -1,43 +1,84 @@
 import { register } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
-import { Form, Wrapper, Label, Input, Btn, Title } from './RegisterForm.styled';
+import { Formik } from 'formik';
+import { registerSchema } from 'schemas/registerSchema';
+import {
+  FormContainer,
+  Title,
+  InputWrapper,
+  Label,
+  Input,
+  Btn,
+  ErrorMsg,
+} from './RegisterForm.styled';
+
+const initialValues = {
+  username: '',
+  email: '',
+  password: '',
+};
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-
+  const handleSubmit = (values, { resetForm }) => {
     dispatch(
       register({
-        name: form.elements.username.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+        name: values.username,
+        email: values.email,
+        password: values.password,
       })
     );
 
-    form.reset();
+    resetForm();
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Title>Sign up to continue</Title>
-      <Wrapper>
-        <Label htmlFor="username">Username:</Label>
-        <Input type="text" name="username" id="username" required autoComplete="off" />
-      </Wrapper>
+    <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={registerSchema}>
+      {({ errors, touched }) => (
+        <FormContainer>
+          <Title>Sign up to continue</Title>
+          <InputWrapper>
+            <Label htmlFor="username">Username:</Label>
+            <Input
+              type="text"
+              name="username"
+              id="username"
+              autoComplete="off"
+              placeholder={' '}
+              data-error={errors.username && touched.username ? true : false}
+            />
+            <ErrorMsg name="username" component="span" />
+          </InputWrapper>
 
-      <Wrapper>
-        <Label htmlFor="email">Email:</Label>
-        <Input type="email" name="email" id="email" required autoComplete="off" />
-      </Wrapper>
+          <InputWrapper>
+            <Label htmlFor="email">Email:</Label>
+            <Input
+              type="email"
+              name="email"
+              id="email"
+              autoComplete="off"
+              placeholder={' '}
+              data-error={errors.email && touched.email ? true : false}
+            />
+            <ErrorMsg name="email" component="span" />
+          </InputWrapper>
 
-      <Wrapper>
-        <Label htmlFor="password">Password:</Label>
-        <Input type="password" name="password" id="password" required autoComplete="off" />
-      </Wrapper>
-      <Btn type="submit">Sign up</Btn>
-    </Form>
+          <InputWrapper>
+            <Label htmlFor="password">Password:</Label>
+            <Input
+              type="password"
+              name="password"
+              id="password"
+              autoComplete="off"
+              placeholder={' '}
+              data-error={errors.password && touched.password ? true : false}
+            />
+            <ErrorMsg name="password" component="span" />
+          </InputWrapper>
+          <Btn type="submit">Sign up</Btn>
+        </FormContainer>
+      )}
+    </Formik>
   );
 };

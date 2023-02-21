@@ -2,41 +2,49 @@ import { Form, Field, ErrorMessage } from 'formik';
 import styled from '@emotion/styled';
 
 export const Container = styled(Form)`
-  margin: 0 auto;
-  margin-bottom: 20px;
-  padding: 20px;
-  max-width: 50%;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
 `;
 
 export const Wrapper = styled.div`
-  margin-bottom: 30px;
-  max-width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  flex: 1;
+  gap: 10px;
 `;
 
 export const Label = styled.label`
-  margin-bottom: 10px;
   font-weight: 500;
   font-size: 24px;
-  color: var(--secondary);
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 `;
 
 export const Input = styled(Field)`
-  padding: 5px 10px;
-  width: 100%;
+  padding: 15px;
+  /* width: 100%; */
 
   font-size: 24px;
-  color: var(--primary);
-  // text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 
   background-color: transparent;
-  border: none;
-  border-radius: 5px;
-  box-shadow: var(--inset-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+  transition: all 300ms ease-in-out;
+
+  outline: none;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 `;
 
 export const ErrorMsg = styled(ErrorMessage)`
@@ -47,21 +55,25 @@ export const ErrorMsg = styled(ErrorMessage)`
 export const Btn = styled.button`
   padding: 10px 25px;
 
+  max-height: 60px;
+
   font-size: 24px;
   font-weight: 500;
-  color: var(--accent);
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 
   background-color: transparent;
-  border-radius: 5px;
-  border: 1px solid var(--accent);
-  box-shadow: var(--main-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 
   cursor: pointer;
 
   transition: all 250ms ease-in-out;
 
   :hover {
-    color: var(--bg);
-    background-color: var(--accent);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 `;

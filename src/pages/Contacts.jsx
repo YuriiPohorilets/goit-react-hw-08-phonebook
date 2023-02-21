@@ -1,4 +1,4 @@
-import { Subtitle, Title } from 'components/App.styled';
+import { Subtitle, Wrapper } from 'components/App.styled';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
@@ -15,7 +15,7 @@ export const ContactsPage = () => {
 
   return (
     <>
-      <Title>Phonebook</Title>
+      <Subtitle>New contact</Subtitle>
       <ContactForm />
 
       <Subtitle>Contacts</Subtitle>
