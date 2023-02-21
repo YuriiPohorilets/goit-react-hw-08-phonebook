@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
+import { useState } from 'react';
 import { Formik } from 'formik';
 import { loginSchema } from 'schemas/loginSchema';
 import {
@@ -10,15 +11,20 @@ import {
   Input,
   Btn,
   ErrorMsg,
+  Text,
+  IconHidden,
+  PassWrapper,
+  ShowPassBtn,
 } from './LoginForm.styled';
 
 const initialValues = {
-  email: '',
-  password: '',
+  email: 'test-user-33@gmail.com',
+  password: 'Test-user-33',
 };
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const [passwordShown, setPasswordShown] = useState(false);
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
@@ -31,11 +37,14 @@ export const LoginForm = () => {
     resetForm();
   };
 
+  const togglePassword = () => setPasswordShown(!passwordShown);
+
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={loginSchema}>
       {({ errors, touched }) => (
         <FormContainer>
           <Title>Sign in to continue</Title>
+          <Text>*you can also use a test credentials</Text>
           <InputWrapper>
             <Label htmlFor="email">Email:</Label>
             <Input
@@ -51,14 +60,20 @@ export const LoginForm = () => {
 
           <InputWrapper>
             <Label htmlFor="password">Password:</Label>
-            <Input
-              type="password"
-              name="password"
-              id="password"
-              autoComplete="off"
-              placeholder={' '}
-              data-error={errors.password && touched.password ? true : false}
-            />
+            <PassWrapper>
+              <Input
+                type={passwordShown ? 'text' : 'password'}
+                name="password"
+                id="password"
+                autoComplete="off"
+                placeholder={' '}
+                data-error={errors.password && touched.password ? true : false}
+              />
+
+              <ShowPassBtn type="button" onClick={togglePassword} data-shown={passwordShown}>
+                <IconHidden />
+              </ShowPassBtn>
+            </PassWrapper>
             <ErrorMsg name="password" component="span" />
           </InputWrapper>
           <Btn type="submit">Sign in</Btn>

@@ -1,5 +1,5 @@
 import { AuthItem } from 'components/AuthNav/AuthNav.styled';
-import { Title, Paragraph } from 'components/App.styled';
+import { Title, Paragraph, Info, InfoLink } from 'components/App.styled';
 import { useAuth } from 'hooks/useAuth';
 
 export const HomePage = () => {
@@ -18,6 +18,13 @@ export const HomePage = () => {
           <AuthItem to={'/login'}>Sign in</AuthItem>
         </Paragraph>
       )}
+
+      <Info>
+        Created by{' '}
+        <InfoLink href="https://www.linkedin.com/feed/" target="_blank" rel="noreferrer">
+          Yurii Pohorilets
+        </InfoLink>
+      </Info>
     </>
   );
 };

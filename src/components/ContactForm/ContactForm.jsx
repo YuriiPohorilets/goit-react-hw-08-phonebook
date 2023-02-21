@@ -43,21 +43,23 @@ export const ContactForm = () => {
         onSubmit={handleSubmit}
         validationSchema={contactSchema}
       >
-        <Container>
-          <Wrapper>
-            <Label htmlFor="name">Name:</Label>
-            <Input name="name" type="text" id="name" />
-            <ErrorMsg name="name" component="p" />
-          </Wrapper>
+        {({ errors, touched }) => (
+          <Container>
+            <Wrapper>
+              <Label htmlFor="name">Name:</Label>
+              <Input name="name" type="text" id="name" />
+              <ErrorMsg name="name" component="span" />
+            </Wrapper>
 
-          <Wrapper>
-            <Label htmlFor="number">Number:</Label>
-            <Input name="number" type="tel" id="number" />
-            <ErrorMsg name="number" component="p" />
-          </Wrapper>
+            <Wrapper>
+              <Label htmlFor="number">Number:</Label>
+              <Input name="number" type="tel" id="number" />
+              <ErrorMsg name="number" component="span" />
+            </Wrapper>
 
-          <Btn type="submit">Add contact</Btn>
-        </Container>
+            <Btn type="submit">Add contact</Btn>
+          </Container>
+        )}
       </Formik>
       <ToastContainer />
     </>
