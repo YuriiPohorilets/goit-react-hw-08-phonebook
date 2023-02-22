@@ -18,7 +18,8 @@ export const Container = styled.div`
   left: 50%;
   z-index: 2;
 
-  max-width: 300px;
+  max-width: 350px;
+  max-height: 90vh;
 
   transform: translate(-50%, -50%);
 
@@ -31,15 +32,25 @@ export const Container = styled.div`
   border-radius: 16px;
 
   backdrop-filter: blur(5px);
+  overflow-y: auto;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  align-item: center;
+  justify-content: flex-start;
+  gap: 20px;
 `;
 
 export const Msg = styled.p`
+  margin-bottom: 20px;
+  line-height: 1.6;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.7);
 `;
 
 export const Name = styled.span`
-  font-weight: 500;
+  font-weight: 700;
   font-size: 18px;
   color: rgba(255, 255, 255, 1);
 `;
@@ -64,5 +75,28 @@ export const Btn = styled.button`
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 1);
     background-color: rgba(255, 255, 255, 0.1);
+  }
+`;
+
+export const BtnDelete = styled.button`
+  padding: 8px 18px;
+
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(227, 67, 67, 0.7);
+
+  background-color: transparent;
+
+  border: 1px solid rgba(227, 67, 67, 0.7);
+  border-radius: 10px;
+
+  transition: all 250ms ease-in-out;
+
+  cursor: pointer;
+
+  :hover {
+    color: rgba(227, 67, 67, 1);
+    border: 1px solid rgba(227, 67, 67, 1);
+    background-color: rgba(227, 67, 67, 0.1);
   }
 `;

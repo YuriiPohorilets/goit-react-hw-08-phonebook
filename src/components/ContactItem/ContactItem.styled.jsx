@@ -74,6 +74,7 @@ export const Btn = styled.button`
   font-weight: 500;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.7);
+
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 
   background-color: transparent;

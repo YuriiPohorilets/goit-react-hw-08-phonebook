@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
 import { createPortal } from 'react-dom';
-import { Overlay, Container, Msg, Name, Btn } from './ConfirmModal.styled';
+import { Overlay, Container, Wrapper, Msg, Name, Btn, BtnDelete } from './ConfirmModal.styled';
 
 const modalRoot = document.querySelector('#bg-root');
 
@@ -15,12 +15,14 @@ export const ConfirmModal = ({ id, name, closeConfirm }) => {
           Are you sure you want to delete the contact: <Name>{name}</Name>?
         </Msg>
 
-        <Btn type="button" onClick={closeConfirm}>
-          Cancel
-        </Btn>
-        <Btn type="button" onClick={() => dispatch(deleteContact(id))}>
-          Delete
-        </Btn>
+        <Wrapper>
+          <Btn type="button" onClick={closeConfirm}>
+            Cancel
+          </Btn>
+          <BtnDelete type="button" onClick={() => dispatch(deleteContact(id))}>
+            Delete
+          </BtnDelete>
+        </Wrapper>
       </Container>
       <Overlay onClick={closeConfirm}></Overlay>
     </>,

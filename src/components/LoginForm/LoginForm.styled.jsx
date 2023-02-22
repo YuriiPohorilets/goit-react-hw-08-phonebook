@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { Form, Field, ErrorMessage } from 'formik';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
-import { device } from 'components/App.styled';
 
 export const FormContainer = styled(Form)`
   display: flex;
