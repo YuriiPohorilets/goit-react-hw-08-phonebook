@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ConfirmModal } from 'components/ConfirmModal/ConfirmModal';
-import { Btn, Item, Name, Number } from './ContactItem.styled';
+import { Btn, Item, Name, Number, Wrapper } from './ContactItem.styled';
 
 export const ContactItem = ({ id, number, name }) => {
   const [shownConfirm, setShownConfirm] = useState(false);
@@ -8,8 +8,11 @@ export const ContactItem = ({ id, number, name }) => {
 
   return (
     <Item key={id}>
-      <Name>{name}</Name>
-      <Number href={'tel:' + number}>{number}</Number>
+      <Wrapper>
+        <Name>{name}</Name>
+        <Number href={'tel:' + number}>{number}</Number>
+      </Wrapper>
+
       <Btn type="button" onClick={toggleConfirm}>
         Delete
       </Btn>

@@ -1,50 +1,59 @@
 import styled from '@emotion/styled';
-import { device } from 'components/App.styled';
+import { NavLink } from 'react-router-dom';
 
-export const Item = styled.li`
-  padding: 10px;
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
   width: 100%;
+  height: 100%;
+
+  background-color: var(bg);
+
+  backdrop-filter: blur(2px);
+`;
+
+export const Nav = styled.nav`
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+
+  padding: 40px 20px 140px;
+  width: 250px;
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
-  gap: 20px;
-
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 1);
-  border-radius: 10px;
-
-  @media ${device.tablet} {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-`;
-
-export const Wrapper = styled.div`
-  display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  flex: 1 0 auto;
-  gap: 20px;
+  gap: 30px;
+
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background-color: var(bg);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  overflow-y: auto;
+
+  backdrop-filter: blur(5px);
 `;
 
-export const Name = styled.span`
-  text-align: left;
-  font-size: 18px;
-  color: rgba(255, 255, 255, 1);
-  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+export const NavList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
 `;
 
-export const Number = styled.a`
+export const NavItemLink = styled(NavLink)`
   position: relative;
 
   font-weight: 500;
-  font-size: 18px;
-  text-align: right;
+  font-size: 32px;
   color: rgba(255, 255, 255, 0.7);
+
   text-decoration: none;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 
@@ -78,22 +87,28 @@ export const Number = styled.a`
   :focus {
     color: #fff;
   }
+
+  &.active {
+    color: #fff;
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
 `;
 
-export const Btn = styled.button`
-  padding: 8px 18px;
+export const BtnLogOut = styled.button`
+  padding: 16px 28px;
 
+  font-size: 24px;
   font-weight: 500;
-  font-size: 18px;
   color: rgba(255, 255, 255, 0.7);
-
-  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 
   background-color: transparent;
 
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 10px;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 
   transition: all 250ms ease-in-out;
 
@@ -102,6 +117,6 @@ export const Btn = styled.button`
   :hover {
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 1);
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 `;

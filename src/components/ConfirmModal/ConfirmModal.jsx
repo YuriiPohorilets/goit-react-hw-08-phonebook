@@ -3,7 +3,7 @@ import { deleteContact } from 'redux/contacts/operations';
 import { createPortal } from 'react-dom';
 import { Overlay, Container, Wrapper, Msg, Name, Btn, BtnDelete } from './ConfirmModal.styled';
 
-const modalRoot = document.querySelector('#bg-root');
+const modalRoot = document.querySelector('#modal-root');
 
 export const ConfirmModal = ({ id, name, closeConfirm }) => {
   const dispatch = useDispatch();

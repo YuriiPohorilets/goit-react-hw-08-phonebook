@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { device } from 'components/App.styled';
 
 export const UserWrapper = styled.div`
   display: flex;
@@ -17,11 +18,15 @@ export const UserName = styled.span`
 `;
 
 export const BtnLogOut = styled.button`
-  padding: 8px 18px;
+  padding: 13px;
 
   font-size: 18px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.7);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   background-color: transparent;
 
@@ -31,6 +36,10 @@ export const BtnLogOut = styled.button`
   transition: all 250ms ease-in-out;
 
   cursor: pointer;
+
+  @media ${device.tablet} {
+    padding: 8px 18px;
+  }
 
   :hover {
     color: #fff;
